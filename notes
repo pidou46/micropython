@@ -1,0 +1,8 @@
+from https://github.com/micropython/micropython/pull/3608
+
+    Is there any way to detach a gpio from PWM?
+
+You can try configuring that pin for GPIO, like Pin(12, Pin.OUT). If that doesn't work then there are the low-level functions esp.gpio_matrix_in(gpio, signal, inv) and 
+esp.gpio_matrix_out(gpio, signal, out_inv, oen_inv) which can force the GPIO MUX (see the IDF docs for how they work).
+
+This is not implemented in the doc.
